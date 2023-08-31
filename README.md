@@ -1,27 +1,24 @@
 # ITMO schedule to iCalendar converter
 
-Сервис, который ходит на my.itmo.ru за расписанием и экспортирует его как iCalendar с публичной ссылкой. Позволяет автоматически и с автообновлением экспортировать пары в календари Google, iCloud и другие.
+CLI приложение, которое сходит на my.itmo.ru за расписанием и экспортирует его как iCalendar. Позволяет автоматически и с автообновлением экспортировать пары в календари Google, iCloud и другие.
 
 ## Пререквизиты
 
-К сожалению, нужен логин и пароль от ИСУ, поэтому безопасности ради публичного сервиса не будет.
 Понадобится:
 
-- сервер с публичным IP адресом;
-- `git`, `docker`, `docker-compose` в нём.
+- `python` версии 3.7+
+- Модули `dateutil`, `requests`, `ics` 
 
 ## Как запустить
 1. 	Склонировать репозиторий:
 	```bash
-	git clone https://github.com/iburakov/my-itmo-ru-to-ical.git && cd my-itmo-ru-to-ical
+	git clone https://github.com/maaxxaam/my-itmo-ru-to-ical.git && cd my-itmo-ru-to-ical
 	```
-1. Заполнить конфиг:
-	```bash
-	cp config/config.py.template config/config.py && vim config/config.py
-	```
-1. Запустить сервис: `docker-compose up -d`
-1. Перейти по ссылке: `http://<ip/domain сервера>:35601`. Если все хорошо, то пойдет загрузка .ics файла
-1. Импортировать файл в свой календарь
+1. Запустить CLI через python:
+    ```bash
+    python3 app.py <ISU Login> <ISU Password>
+    ```
+1. Импортировать файл my.itmo.ics в свой календарь
 1. ???
 1. PROFIT!!!
 
