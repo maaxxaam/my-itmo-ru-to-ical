@@ -28,7 +28,7 @@ if app.config["SENTRY_DSN"]:
     )
 
 
-@app.route(_calendar_route)
+@app.route('/')
 def get_calendar():
     token = get_access_token(app.config["ISU_USERNAME"], app.config["ISU_PASSWORD"])
     events = get_raw_events(token)
